@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/pmuchchanthula/Downloads/opencsv-3.8.jar"/>
+	<classpathentry kind="lib" path="/Users/pmuchchanthula/.m2/repository/org/apache/httpcomponents/httpclient/4.5.10/httpclient-4.5.10.jar" sourcepath="/Users/pmuchchanthula/m2/repository/org/apache/httpcomponents/httpclient/4.5.10/httpclient-4.5.10-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.apache.httpcomponents"/>
+			<attribute name="maven.artifactId" value="httpclient"/>
+			<attribute name="maven.version" value="4.5.10"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/pmuchchanthula/.m2/repository/org/apache/httpcomponents/httpcore/4.4.12/httpcore-4.4.12.jar" sourcepath="/Users/pmuchchanthula/m2/repository/org/apache/httpcomponents/httpcore/4.4.12/httpcore-4.4.12-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.apache.httpcomponents"/>
+			<attribute name="maven.artifactId" value="httpcore"/>
+			<attribute name="maven.version" value="4.4.12"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/pmuchchanthula/.m2/repository/org/apache/commons/commons-lang3/3.9/commons-lang3-3.9.jar" sourcepath="/Users/pmuchchanthula/m2/repository/org/apache/commons/commons-lang3/3.9/commons-lang3-3.9-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.apache.commons"/>
+			<attribute name="maven.artifactId" value="commons-lang3"/>
+			<attribute name="maven.version" value="3.9"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/pmuchchanthula/Downloads/gson-2.8.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
