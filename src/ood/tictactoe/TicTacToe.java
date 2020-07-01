@@ -1,4 +1,4 @@
-package ood;
+package ood.tictactoe;
 
 public class TicTacToe {
     private static final int DEFAULT_BOARD_SIZE = 3;

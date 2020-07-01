@@ -1,4 +1,4 @@
-package ood;
+package ood.tictactoe;
 
 public class TicTacToeRunner {
 

@@ -1,4 +1,4 @@
-package ood;
+package ood.tictactoe;
 
 import java.util.Scanner;
 
