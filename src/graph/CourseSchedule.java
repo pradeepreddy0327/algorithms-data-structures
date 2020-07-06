@@ -14,9 +14,8 @@ public class CourseSchedule {
 
     public static void main(String[] args) {
         CourseSchedule obj = new CourseSchedule();
-        System.out.println(Arrays.toString(
-                obj.findOrder(4, new int[][] { { 1, 0 }, { 2, 0 }, { 3, 1 },
-                        { 3, 2 } })));
+        System.out.println(Arrays.toString(obj.findOrder(4,
+                new int[][] { { 1, 0 }, { 2, 0 }, { 3, 1 }, { 3, 2 } })));
     }
 
     public int[] findOrder(int numCourses, int[][] prerequisites) {
@@ -28,7 +27,7 @@ public class CourseSchedule {
         }
         for (int[] dep : prerequisites) {
             graph.get(dep[1]).add(dep[0]);
-            incomingEdges.put(dep[0], incomingEdges.get(dep[0]) + 1);
+            incomingEdges.compute(dep[0], (k, v) -> v + 1);
         }
         int[] courseOrder = new int[numCourses];
         int i = 0;
@@ -42,7 +41,7 @@ public class CourseSchedule {
             Integer vertex = q.poll();
             courseOrder[i++] = vertex;
             for (Integer adj : graph.get(vertex)) {
-                incomingEdges.put(adj, incomingEdges.get(adj) - 1);
+                incomingEdges.compute(adj, (k, v) -> v - 1);
                 if (incomingEdges.get(adj) == 0) {
                     q.add(adj);
                 }

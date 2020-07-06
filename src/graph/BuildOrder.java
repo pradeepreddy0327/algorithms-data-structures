@@ -28,7 +28,7 @@ public class BuildOrder {
         }
         for (Character[] dep : dependecies) {
             graph.get(dep[0]).add(dep[1]);
-            incomingEdges.put(dep[1], incomingEdges.get(dep[1]) + 1);
+            incomingEdges.compute(dep[1], (k, v) -> v + 1);
         }
         List<Character> buildOrder = new ArrayList<Character>();
         Queue<Character> q = new LinkedList<>();
@@ -41,7 +41,7 @@ public class BuildOrder {
             Character vertex = q.poll();
             buildOrder.add(vertex);
             for (Character adj : graph.get(vertex)) {
-                incomingEdges.put(adj, incomingEdges.get(adj) - 1);
+                incomingEdges.compute(adj, (k, v) -> v - 1);
                 if (incomingEdges.get(adj) == 0) {
                     q.add(adj);
                 }
