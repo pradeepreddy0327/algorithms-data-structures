@@ -8,15 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 
 public class ADPLScripts {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CsvValidationException {
 		readPrecode();
 
 	}
 
-	private static void readPrecode() {
+	private static void readPrecode() throws CsvValidationException {
 		try {
 			//File csvFile = new File("/Users/pmuchchanthula/Desktop/ADPL/5-8042019P_Adpl_orgs.csv");
 			//File csvFile = new File("/Users/pmuchchanthula/Desktop/ADPL/4-7042019P_Adpl_orgs.csv");

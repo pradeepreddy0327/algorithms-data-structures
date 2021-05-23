@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.opencsv.CSVReader;
 
+import com.opencsv.exceptions.CsvValidationException;
 import stocks.dto.BalanceSheetDTO;
 import stocks.dto.ResultDTO;
 import stocks.dto.StockDTO;
@@ -52,7 +53,7 @@ public class StocksThread implements Runnable {
         }
     }
 
-    public List<String> readFile() throws IOException {
+    public List<String> readFile() throws IOException, CsvValidationException {
         File csvFile = new File(
                 "/Users/pmuchchanthula/Desktop/Stocks_Data/companylist.csv");
         CSVReader br = new CSVReader(new FileReader(csvFile));

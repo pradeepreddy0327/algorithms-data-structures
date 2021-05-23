@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.opencsv.CSVReader;
 
+import com.opencsv.exceptions.CsvValidationException;
 import stocks.dto.BalanceSheetDTO;
 import stocks.dto.ResultDTO;
 import stocks.dto.StockDTO;
@@ -18,7 +19,7 @@ public class StocksTest {
     // https://financialmodelingprep.com/api/v3/financials/balance-sheet-statement/AAPL?period=quarter
     static final Integer BILLION = 1000000000;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, CsvValidationException {
 
         RestClient rc = new RestClient();
 
@@ -57,7 +58,7 @@ public class StocksTest {
         }
     }
 
-    public static List<String> readFile() throws IOException {
+    public static List<String> readFile() throws IOException, CsvValidationException {
         File csvFile = new File(
                 "/Users/pmuchchanthula/Desktop/Stocks_Data/companylist.csv");
         CSVReader br = new CSVReader(new FileReader(csvFile));
