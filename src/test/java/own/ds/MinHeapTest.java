@@ -3,7 +3,7 @@ package own.ds;
 public class MinHeapTest {
 
     public static void main(String[] args) {
-        MinHeap minHeap = new MinHeap();
+        MinHeap<Integer> minHeap = new MinHeap<>(Integer.class);
         minHeap.insert(57);
         minHeap.insert(30);
         minHeap.insert(44);

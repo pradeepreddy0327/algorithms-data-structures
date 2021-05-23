@@ -3,14 +3,15 @@ package own.ds;
 public class Stack<T> {
     private LinkedList<T> linkedList;
 
-    public Stack(){
+    public Stack() {
         linkedList = new LinkedList<>();
     }
-    public void push(T val){
+
+    public void push(T val) {
         linkedList.addFirst(val);
     }
 
-    public T peek(){
+    public T peek() {
         return linkedList.peekFirst();
     }
 
@@ -18,7 +19,7 @@ public class Stack<T> {
         return linkedList.removeFirst();
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return linkedList.isEmpty();
     }
 }

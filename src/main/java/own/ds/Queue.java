@@ -3,14 +3,15 @@ package own.ds;
 public class Queue<T> {
     private LinkedList<T> linkedList;
 
-    public Queue(){
+    public Queue() {
         linkedList = new LinkedList<>();
     }
-    public void push(T val){
+
+    public void push(T val) {
         linkedList.addFirst(val);
     }
 
-    public T peek(){
+    public T peek() {
         return linkedList.peekLast();
     }
 
@@ -18,7 +19,7 @@ public class Queue<T> {
         return linkedList.removeLast();
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return linkedList.isEmpty();
     }
 }
