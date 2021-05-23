@@ -2,25 +2,25 @@ package ood.tictactoe;
 
 public class TicTacToe {
     private static final int DEFAULT_BOARD_SIZE = 3;
-    private Cell[][] board;
+    private Value[][]        board;
     int filled = 0;
 
     public TicTacToe() {
-        board = new Cell[DEFAULT_BOARD_SIZE][DEFAULT_BOARD_SIZE];
+        board = new Value[DEFAULT_BOARD_SIZE][DEFAULT_BOARD_SIZE];
     }
 
     public TicTacToe(int size) {
-        board = new Cell[size][size];
+        board = new Value[size][size];
     }
 
-    public boolean setValue(int x, int y, Cell value) {
+    public boolean setValue(int x, int y, Value value) {
         board[x][y] = value;
         filled++;
         printBoard();
         return isWinner(x, y, value);
     }
 
-    private boolean isWinner(int x, int y, Cell value) {
+    private boolean isWinner(int x, int y, Value value) {
         int rowMatched = 0, columnMatched = 0, diag1Matched = 0,
                 diag2Matched = 0;
         for (int i = 0; i < board.length; i++) {
@@ -65,7 +65,7 @@ public class TicTacToe {
     }
 }
 
-enum Cell {
+enum Value {
     X, O
 
 }

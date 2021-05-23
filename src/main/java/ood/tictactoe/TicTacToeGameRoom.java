@@ -20,13 +20,13 @@ public class TicTacToeGameRoom {
     }
 
     static TicTacToeGameRoom getOnePlayerGmae() {
-        return new TicTacToeGameRoom(new Player("Player1", Cell.X, false),
-                new Player("Player2", Cell.O, true));
+        return new TicTacToeGameRoom(new Player("Player1", Value.X, false),
+                new Player("Player2", Value.O, true));
     }
 
-    static TicTacToeGameRoom getZeroPlayerGmae() {
-        return new TicTacToeGameRoom(new Player("Player1", Cell.X, true),
-                new Player("Player2", Cell.O, true));
+    static TicTacToeGameRoom getZeroPlayerGame() {
+        return new TicTacToeGameRoom(new Player("Player1", Value.X, true),
+                new Player("Player2", Value.O, true));
     }
 
     public void start() {

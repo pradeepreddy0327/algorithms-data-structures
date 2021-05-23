@@ -2,11 +2,11 @@ package ood.tictactoe;
 
 public class Player {
 
-    private String name;
-    private Cell value;
+    private String  name;
+    private Value   value;
     private boolean isComputer;
 
-    public Player(String name, Cell value, boolean isComputer) {
+    public Player(String name, Value value, boolean isComputer) {
         super();
         this.name = name;
         this.value = value;
@@ -21,11 +21,11 @@ public class Player {
         this.name = name;
     }
 
-    public Cell getValue() {
+    public Value getValue() {
         return value;
     }
 
-    public void setValue(Cell value) {
+    public void setValue(Value value) {
         this.value = value;
     }
 
