@@ -32,7 +32,7 @@ public class AlienOrder {
             while (j < minL) {
                 if (words[i].charAt(j) != words[i + 1].charAt(j)) {
                     List<Character> adjList = graph.getOrDefault(
-                            words[i].charAt(j), new ArrayList<Character>());
+                            words[i].charAt(j), new ArrayList<>());
                     if (!adjList.contains(words[i + 1].charAt(j))) {
                         adjList.add(words[i + 1].charAt(j));
                         graph.put(words[i].charAt(j), adjList);

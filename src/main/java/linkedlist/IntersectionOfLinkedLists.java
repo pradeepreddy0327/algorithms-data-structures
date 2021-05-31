@@ -8,40 +8,34 @@ public class IntersectionOfLinkedLists {
 		// TODO Auto-generated method stub
 
 	}
-	
-	 public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-	        ListNode a = headA;
-	        ListNode b = headB;
-	        int i=0, j =0;
-	        while(a!=null){
-	            i++;
-	            a = a.next;
-	        }
-	        while(b!=null){
-	            j++;
-	            b = b.next;
-	        }
-	        a= headA;b=headB;
-	        if(i>j){
-	            int diff = i-j;
-	            while(diff>0){
-	                a=a.next;
-	                diff--;
-	            }
-	        } else if(i<j){
-	           int diff = j-i;
-	            while(diff>0){
-	                b=b.next;
-	                diff--;
-	            } 
-	        }
-	        while(a != null && b != null){
-	            if(a.equals(b)) return a;
-	            a = a.next;
-	            b = b.next;
-	        }
-	        
-	        return null;
-	     }
+
+	public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+		int listASize = getSize(headA);
+		int listBSize = getSize(headB);
+		ListNode currentA = traverse(headA, listASize-listBSize);
+		ListNode currentB = traverse(headB, listBSize-listASize);
+		while(currentA != null && currentB != null){
+			if(currentA == currentB) return currentA;
+			currentA = currentA.next;
+			currentB = currentB.next;
+		}
+		return null;
+	}
+
+	private ListNode traverse(ListNode node, int i){
+		while(i>0){
+			node = node.next;
+			i--;
+		}
+		return node;
+	}
+	private int getSize(ListNode node){
+		int size = 0;
+		while(node != null){
+			size++;
+			node = node.next;
+		}
+		return size;
+	}
 
 }

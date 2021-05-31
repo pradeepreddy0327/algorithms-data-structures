@@ -37,7 +37,7 @@ public class BinaryTreeSerializeDeserialize {
 			s.append(",#");
 			return;
 		}
-		s = s.append("," + root.val);
+		s.append("," + root.val);
 		s2(root.left, s);
 		s2(root.right, s);
 	}
