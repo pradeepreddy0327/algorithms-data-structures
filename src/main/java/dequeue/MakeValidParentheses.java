@@ -3,9 +3,9 @@ package dequeue;
 import java.util.Deque;
 import java.util.LinkedList;
 
+// leetcode 1249  tags: Facebook
 public class MakeValidParentheses {
 
-    // leetcode: 1249
     public String minRemoveToMakeValid(String s) {
         Deque<ParenthesesIndex> dq= new LinkedList<>();
         for(int i=0;i<s.length();i++){

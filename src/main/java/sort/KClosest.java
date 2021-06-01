@@ -3,6 +3,7 @@ package sort;
 import java.util.Arrays;
 import java.util.Random;
 
+// leetcode 973  tags: Facebook
 public class KClosest {
 
     public int[][] kClosest(int[][] points, int k){

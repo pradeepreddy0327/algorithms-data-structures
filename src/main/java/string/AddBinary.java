@@ -1,5 +1,6 @@
 package string;
 
+// leetcode 67  tags: Facebook
 public class AddBinary {
     public static void main(String[] args) {
         AddBinary obj = new AddBinary();

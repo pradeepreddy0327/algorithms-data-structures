@@ -1,8 +1,9 @@
-package BinarySearch;
+package binarySearch;
 
 import java.util.ArrayList;
 import java.util.List;
 
+// leetcode 1428  tags: Facebook
 public class LeftMostColumnWithAtLeastOne {
 
     public static void main(String[] args){
