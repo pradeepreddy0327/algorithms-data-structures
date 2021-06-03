@@ -1,6 +1,6 @@
 package tree;
 
-// lc 124
+// leetcode 124  tags: Facebook
 public class MaxPathSum {
 
     public static void main(String[] args) {
@@ -20,8 +20,7 @@ public class MaxPathSum {
         }
         int left = Math.max(maxPathSum(root.left), 0);
         int right = Math.max(maxPathSum(root.right), 0);
-        int sum = root.val + left + right;
-        maxSum = Math.max(sum, maxSum);
+        maxSum = Math.max(root.val + left + right, maxSum);
         return root.val + Math.max(left, right);
     }
 }

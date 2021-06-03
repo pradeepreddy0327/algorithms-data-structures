@@ -1,38 +1,50 @@
 package tree;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.TreeMap;
 
-// lc 314
+// leetcode 314  tags: Facebook
 public class VerticalOrder {
 
     public static void main(String[] args) {
     }
 
     public List<List<Integer>> verticalOrder(TreeNode root) {
-        TreeMap<Integer, List<Integer>> map = new TreeMap<>();
+        List<List<Integer>> ans = new ArrayList<>();
+        if(root == null) return ans;
+        Map<Integer, List<Integer>> levelMap = new HashMap<>();
         Queue<TreeNodeLevel> q = new LinkedList<>();
-        if (root != null) {
-            q.add(new TreeNodeLevel(root, 0));
-        }
-        while (!q.isEmpty()) {
+        q.add(new TreeNodeLevel(root, 0));
+        int minLevel = 0;
+        int maxLevel = 0;
+        while(!q.isEmpty()){
             TreeNodeLevel nodeLevel = q.poll();
-            List<Integer> list = map.getOrDefault(nodeLevel.level,
-                    new ArrayList<Integer>());
-            map.put(nodeLevel.level, list);
-            list.add(nodeLevel.node.val);
-            if (nodeLevel.node.left != null) {
-                q.add(new TreeNodeLevel(nodeLevel.node.left, nodeLevel.level-1));
+            List<Integer> list = levelMap.get(nodeLevel.level);
+            if(list == null){
+                list = new ArrayList<>();
+                levelMap.put(nodeLevel.level, list);
             }
-            if (nodeLevel.node.right != null) {
-                q.add(new TreeNodeLevel(nodeLevel.node.right,
-                        nodeLevel.level + 1));
+            list.add(nodeLevel.node.val);
+
+            if(nodeLevel.node.left != null){
+                q.add(new TreeNodeLevel(nodeLevel.node.left, nodeLevel.level-1));
+                minLevel = Math.min(minLevel, nodeLevel.level-1);
+            }
+            if(nodeLevel.node.right != null){
+                q.add(new TreeNodeLevel(nodeLevel.node.right, nodeLevel.level+1));
+                maxLevel = Math.max(maxLevel, nodeLevel.level+1);
             }
         }
-        return new ArrayList<>(map.values());
+
+        for(int i = minLevel; i<= maxLevel; i++){
+            ans.add(levelMap.get(i));
+        }
+        return ans;
     }
 
     class TreeNodeLevel {
