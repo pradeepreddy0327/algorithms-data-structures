@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
-// lc 269
+// leetcode 269  tags: Facebook
 public class AlienOrder {
 
     public static void main(String[] args) {
@@ -21,6 +21,8 @@ public class AlienOrder {
         System.out.println(obj.alienOrder(new String[] { "z", "x", "z" }));
         System.out.println(
                 obj.alienOrder(new String[] { "za", "zb", "ca", "cb" }));
+        System.out.println(
+                obj.alienOrder(new String[] { "abc", "ab" }));
     }
 
     public String alienOrder(String[] words) {
