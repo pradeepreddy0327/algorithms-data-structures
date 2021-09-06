@@ -1,5 +1,12 @@
 package stocks;
 
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
+
+import stocks.dto.BalanceSheetDTO;
+import stocks.dto.ResultDTO;
+import stocks.dto.StockDTO;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,16 +14,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.opencsv.CSVReader;
-
-import com.opencsv.exceptions.CsvValidationException;
-import stocks.dto.BalanceSheetDTO;
-import stocks.dto.ResultDTO;
-import stocks.dto.StockDTO;
-
 public class StocksTest {
-    // https://financialmodelingprep.com/api/v3/company/profile/AAPL
-    // https://financialmodelingprep.com/api/v3/financials/balance-sheet-statement/AAPL?period=quarter
+    // https://financialmodelingprep.com/api/v3/company/profile/AAPL?apikey=<apikey>
+    // https://financialmodelingprep.com/api/v3/financials/balance-sheet-statement/AAPL?period=quarter&apikey=<apikey>
     static final Integer BILLION = 1000000000;
 
     public static void main(String[] args) throws IOException, CsvValidationException {
@@ -32,12 +32,13 @@ public class StocksTest {
                 StockDTO proflieDTO = rc.getProfile(s);
                 double mkB = proflieDTO.getProfile().getMktCap() / BILLION;
                 double eqB = balSheetDTO.getFinancials().get(0)
-                        .getTaoatlShareHoldersEquity() / BILLION;
-                if (mkB > 0.2 && eqB / mkB > 0.75) {
-                    results.add(new ResultDTO(s, mkB, eqB, eqB / mkB));
-                }
+                                        .getTaoatlShareHoldersEquity() / BILLION;
+//                if (mkB > 0.2 && eqB / mkB > 0.75) {
+//                    results.add(new ResultDTO(s, mkB, eqB, eqB / mkB));
+//                }
+                System.out.println(new ResultDTO(s, mkB, eqB, eqB / mkB));
             } catch (Exception e) {
-                // e.printStackTrace();
+                 e.printStackTrace();
             }
         }
         printResults(results);
@@ -60,7 +61,7 @@ public class StocksTest {
 
     public static List<String> readFile() throws IOException, CsvValidationException {
         File csvFile = new File(
-                "/Users/pmuchchanthula/Desktop/Stocks_Data/companylist.csv");
+                "/Users/pradeepmuchchanthula/Desktop/Pradeep/Stocks/stocks_test.csv");
         CSVReader br = new CSVReader(new FileReader(csvFile));
         List<String> l = new ArrayList<>();
         br.readNext();

@@ -15,6 +15,7 @@ public class AlienOrder {
 
     public static void main(String[] args) {
         AlienOrder obj = new AlienOrder();
+
         System.out.println(obj.alienOrder(
                 new String[] { "wrt", "wrf", "er", "ett", "rftt" }));
         System.out.println(obj.alienOrder(new String[] { "z", "x" }));
